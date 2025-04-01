@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "echo \"No tests yet\" && exit 0"
+  "test": "echo \"No tests yet\" && exit 0",
+  "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,10 @@
     "url": "https://github.com/Toluwani12/pistis_project_Continuous-Integration-and-Continuous-Deployment-CI-CD-/issues"
   },
   "homepage": "https://github.com/Toluwani12/pistis_project_Continuous-Integration-and-Continuous-Deployment-CI-CD-#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0"
+  }
 }
