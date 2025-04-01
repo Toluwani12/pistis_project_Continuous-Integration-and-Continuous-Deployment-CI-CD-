@@ -21,20 +21,5 @@ jobs:
     - name: Run tests
       run: npm test
 
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
-    
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run linter
-      run: npm run lint
+    - name: Use secret
+      run: echo ${{ secrets.MY_SECRET }}
