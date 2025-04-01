@@ -126,5 +126,50 @@ jobs:
       run: npm install
     ```
     ![Lint_Job](img/lint%20job.png)
+    * Also update your node version to **18** to avoid syntax error
     
+**Output:**
+![Output](Img/Output1.png)
 
+
+### 4. Use Secrets in Your Workflow
+Instructions:
+Go to your repository’s Settings tab.
+
+Under Security, click Secrets and variables > Actions.
+
+Click New repository secret.
+
+Add a new secret (for example, MY_SECRET) with a value.
+
+Now, modify your main.yml to use the secret:
+
+```yaml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Use secret
+      run: echo ${{ secrets.MY_SECRET }}
+```
+
+![Secret](Img/secret.png)
