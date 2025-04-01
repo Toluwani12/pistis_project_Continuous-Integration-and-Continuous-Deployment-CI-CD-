@@ -1,0 +1,20 @@
+{
+  "name": "pistis_project_continuous-integration-and-continuous-deployment-ci-cd-",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Toluwani12/pistis_project_Continuous-Integration-and-Continuous-Deployment-CI-CD-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Toluwani12/pistis_project_Continuous-Integration-and-Continuous-Deployment-CI-CD-/issues"
+  },
+  "homepage": "https://github.com/Toluwani12/pistis_project_Continuous-Integration-and-Continuous-Deployment-CI-CD-#readme",
+  "description": ""
+}
