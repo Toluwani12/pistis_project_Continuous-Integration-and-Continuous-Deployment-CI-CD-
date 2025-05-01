@@ -1,6 +1,7 @@
 stages:
-  - build   # The 'build' stage where build-related jobs are executed
-  - test  # The 'test' stage where testing jobs are executed
+  - build
+  - test
+  - deploy
 
 build_job:
   stage: build
@@ -13,3 +14,9 @@ test_job:
   script:
     - echo "Running tests..."
     - # Add your test commands here
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying the project..."
+    - # Add your deployment commands here
