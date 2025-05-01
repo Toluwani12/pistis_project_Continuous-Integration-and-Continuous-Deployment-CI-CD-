@@ -1,7 +1,7 @@
 ### 1. **Create a Workflow Directory:** Create a directory for your GitHub Actions workflows:
 `mkdir -p .github/workflows`
 
-    ![](Img/mkdir.png)
+  ![](Img/mkdir.png)
 
 ### 2. **Create a Simple Workflow:** Create a new workflow file: `touch .github/workflows/main.yml`.
 Open main.yml and add the following content:
