@@ -21,5 +21,4 @@ jobs:
     - name: Run tests
       run: npm test
 
-    - name: Use secret
-      run: echo ${{ secrets.MY_SECRET }}
+   
