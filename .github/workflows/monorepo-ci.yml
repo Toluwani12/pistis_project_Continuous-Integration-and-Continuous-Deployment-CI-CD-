@@ -1,0 +1,44 @@
+name: Monorepo CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      services: ${{ steps.set-matrix.outputs.services }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get list of changed services
+        id: set-matrix
+        run: |
+          changed_dirs=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | cut -d/ -f1 | sort -u | uniq)
+          services=$(echo $changed_dirs | jq -R -s -c 'split(" ") | map(select(. != ""))')
+          echo "services=$services" >> $GITHUB_OUTPUT
+
+  build-test-deploy:
+    needs: detect-changes
+    runs-on: ubuntu-latest
+    if: needs.detect-changes.outputs.services != '[]'
+    strategy:
+      matrix:
+        service: ${{ fromJson(needs.detect-changes.outputs.services) }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build ${{ matrix.service }}
+        working-directory: ./${{ matrix.service }}
+        run: echo "Building ${{ matrix.service }}..."
+
+      - name: Test ${{ matrix.service }}
+        working-directory: ./${{ matrix.service }}
+        run: echo "Testing ${{ matrix.service }}..."
+
+      - name: Deploy ${{ matrix.service }}
+        working-directory: ./${{ matrix.service }}
+        run: echo "Deploying ${{ matrix.service }}..."
